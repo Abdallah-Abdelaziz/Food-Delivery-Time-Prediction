@@ -10,7 +10,7 @@ This project presents an end-to-end data analysis solution for a food delivery d
 ---
 
 ## 📸 Dashboard Preview
-![Food-Delivery-Time-Prediction](food delivery) <!-- Replace with your dashboard screenshot file name -->
+![Food-Delivery-Time-Prediction](food delivery.png) <!-- Replace with your dashboard screenshot file name -->
 
 ---
 
