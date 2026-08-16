@@ -46,7 +46,7 @@ DIVIDE(
     AVERAGE(Food_Delivery_Time_Prediction[Time_taken_min]),
     0
 )
-
+```
 ### 2. External Factors & Events
 -- Average Delivery Time During Festivals
 Avg Delivery Festival = 
