@@ -48,6 +48,7 @@ DIVIDE(
 )
 ```
 ### 2. External Factors & Events
+```
 -- Average Delivery Time During Festivals
 Avg Delivery Festival = 
 CALCULATE(
@@ -61,7 +62,9 @@ CALCULATE(
     AVERAGE(Food_Delivery_Time_Prediction[Time_taken_min]),
     Food_Delivery_Time_Prediction[Is_Festival] = 0
 )
+```
 ### 3. Rider & Fleet Metrics
+```
 -- Total Orders Count
 Total Orders = COUNTROWS(Food_Delivery_Time_Prediction)
 
