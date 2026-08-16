@@ -28,6 +28,21 @@ This project presents an end-to-end data analysis solution for a food delivery d
 The project utilizes advanced **DAX Measures** and **Calculated Columns** to drive the analysis:
 
 * **Transit Time Measure:**
-  ```dax
-  Transit Time = 
-  AVERAGE(Food_Delivery_Time_Prediction[Time_taken_min]) - AVERAGE(Food_Delivery_Time_Prediction[Preparation_Time_Min])
+```dax
+-- Average Total Delivery Time
+Avg Delivery Time = AVERAGE(Food_Delivery_Time_Prediction[Time_taken_min])
+
+-- Average Food Preparation Time
+Avg Prep Time = AVERAGE(Food_Delivery_Time_Prediction[Preparation_Time_Min])
+
+-- Transit Time in Road Only
+Transit Time = 
+AVERAGE(Food_Delivery_Time_Prediction[Time_taken_min]) - AVERAGE(Food_Delivery_Time_Prediction[Preparation_Time_Min])
+
+-- Kitchen Delay Ratio
+Prep Time % = 
+DIVIDE(
+    AVERAGE(Food_Delivery_Time_Prediction[Preparation_Time_Min]),
+    AVERAGE(Food_Delivery_Time_Prediction[Time_taken_min]),
+    0
+)
