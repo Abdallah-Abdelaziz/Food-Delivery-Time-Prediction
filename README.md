@@ -10,7 +10,7 @@ This project presents an end-to-end data analysis solution for a food delivery d
 ---
 
 ## 📸 Dashboard Preview
-![Dashboard Preview](Screenshot.png) <!-- Replace with your dashboard screenshot file name -->
+![Dashboard Preview](food delivery) <!-- Replace with your dashboard screenshot file name -->
 
 ---
 
