@@ -23,11 +23,11 @@ This project presents an end-to-end data analysis solution for a food delivery d
 
 ---
 
-## 🛠️ Data Modeling & DAX Implementation
+## 🧮 Complete DAX Measures & Calculations
 
-The project utilizes advanced **DAX Measures** and **Calculated Columns** to drive the analysis:
+Below are all the DAX measures and calculated columns used to build the dashboard metrics:
 
-* **Transit Time Measure:**
+### 1. Delivery & Transit Performance
 ```dax
 -- Average Total Delivery Time
 Avg Delivery Time = AVERAGE(Food_Delivery_Time_Prediction[Time_taken_min])
@@ -45,4 +45,36 @@ DIVIDE(
     AVERAGE(Food_Delivery_Time_Prediction[Preparation_Time_Min]),
     AVERAGE(Food_Delivery_Time_Prediction[Time_taken_min]),
     0
+)
+### 2. External Factors & Events
+-- Average Delivery Time During Festivals
+Avg Delivery Festival = 
+CALCULATE(
+    AVERAGE(Food_Delivery_Time_Prediction[Time_taken_min]),
+    Food_Delivery_Time_Prediction[Is_Festival] = 1
+)
+
+-- Average Delivery Time During Normal Days
+Avg Delivery Normal Days = 
+CALCULATE(
+    AVERAGE(Food_Delivery_Time_Prediction[Time_taken_min]),
+    Food_Delivery_Time_Prediction[Is_Festival] = 0
+)
+### 3. Rider & Fleet Metrics
+-- Total Orders Count
+Total Orders = COUNTROWS(Food_Delivery_Time_Prediction)
+
+-- Average Rider Speed
+Avg Rider Speed = AVERAGE(Food_Delivery_Time_Prediction[Average_Speed])
+
+-- Average Rider Rating
+Avg Rider Rating = AVERAGE(Food_Delivery_Time_Prediction[Rider_Rating])
+
+-- Calculated Column: Rider Experience Grouping
+Rider_Experience_Group = 
+SWITCH(
+    TRUE(),
+    Food_Delivery_Time_Prediction[Rider_Experience] < 2, "Beginner (< 2 Yrs)",
+    Food_Delivery_Time_Prediction[Rider_Experience] <= 5, "Intermediate (2-5 Yrs)",
+    "Expert (> 5 Yrs)"
 )
